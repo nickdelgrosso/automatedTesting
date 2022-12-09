@@ -3,3 +3,4 @@ results/
 .ipynb_checkpoints
 *.egg-info
 *.pyc
+*.nbconvert.ipynb
