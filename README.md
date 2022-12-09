@@ -13,6 +13,8 @@ Did passenger class, sex, and age have an effect of who survived the Titanic dis
 
 ### Directions
 
+#### Write Automated tests for each python code file
+
   1. `tests/test_utils.py`
   
   - Test that the `titanic_utils.is_adult()` function behaves correctly on three different ages.
@@ -35,4 +37,13 @@ Did passenger class, sex, and age have an effect of who survived the Titanic dis
   
   - `os.path.exists()`, `os.remove()`, and `shutils.rmtree()` can also be helpful here.
     
+
+#### Push your changes to a new fork of this repository
+
+
+#### Add a GitHub Action that runs the tests on push
+
+Do this in the web browser.  Use the `Python Package using Anaconda` or `Python Application` templates under the `GitHub Actions` tab to get started.
+
+*Tip*: Start with a small number of tests, re-running the pipeline stepwise to ensure that it continues to work.
 
