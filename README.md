@@ -11,6 +11,7 @@ In this project, we'll practice using Pytest to automatically test the functiona
 
 Did passenger class, sex, and age have an effect of who survived the Titanic disaster of 1912?  This analysis says yes!
 
+
 ### Directions
 
 #### Write Automated tests for each python code file
@@ -46,4 +47,30 @@ Did passenger class, sex, and age have an effect of who survived the Titanic dis
 Do this in the web browser.  Use the `Python Package using Anaconda` or `Python Application` templates under the `GitHub Actions` tab to get started.
 
 *Tip*: Start with a small number of tests, re-running the pipeline stepwise to ensure that it continues to work.
+
+
+
+## Packaging and Publishing
+
+### Publishing on PyPI
+
+| Step | Description |
+| :-- | :-- | 
+| `pyproject.toml`| [Make the file in the root directory that contains the build instructions and project metadata](https://packaging.python.org/en/latest/tutorials/packaging-projects/#creating-pyproject-toml)
+| `pip install build; python -m build` | Builds distribution files in a venv using the `pyproject.toml` file | 
+| `pip install twine; twine check dist/*` | Check that the dist files have the needed metadata |
+| `twine upload --repository-url=https://test.pypi.org/legacy/ dist/*` | [Upload the dist files](https://packaging.python.org/en/latest/tutorials/packaging-projects/#uploading-the-distribution-archives).  Make sure you have an account on the test.pypi.org site. |
+
+
+### Github Actions: Deploy on Tagged Push or Release
+
+| Step | Description |
+| :-- | :-- |
+| `git tag -a v1.4 -m "my version 1.4";` | [Make an annotated tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging)
+| `git push origin --tags` | Push tags |
+| `  if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')` | [In the GA step, only does the step if there was a tag](https://github.com/pypa/gh-action-pypi-publish#usage) |
+| `  release:    types: [ created ]` | Run workflow on GH release creation |
+
+
+
 
