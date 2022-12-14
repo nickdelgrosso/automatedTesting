@@ -1,5 +1,6 @@
 data/
 results/
+dist/
 .ipynb_checkpoints
 *.egg-info
 *.pyc
