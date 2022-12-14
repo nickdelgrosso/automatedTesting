@@ -1,1 +1,18 @@
 
+on:
+  release:
+    types: [created]
+    
+jobs:
+  publish:
+    name: Publish to PyPI
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Upload to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: | 
+          twine upload dist/*
+      
